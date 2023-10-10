@@ -20,49 +20,49 @@ const InputSubmit = styled.input`
         background-color: #7A7DFE;
         cursor: pointer;
     }
-`
+`;
 
 const Form = ({setCurrencies}) => {
-    const [cryptos, setCrypyos] = useState([])
-    const [error, setError] = useState(false)
+    const [cryptos, setCryptos] = useState([]);
+    const [error, setError] = useState(false);
 
-    const [ currency, SelectCurrencies ] = useSelectCurrencies('Choose your currency', currencies)
-    const [ cryptocurrency, SelectCryptocurrency ] = useSelectCurrencies('Choose your Cryptocurrency', cryptos)
+    const [ currency, SelectCurrencies ] = useSelectCurrencies('Choose your currency', currencies);
+    const [ cryptocurrency, SelectCryptocurrency ] = useSelectCurrencies('Choose your Cryptocurrency', cryptos);
 
     useEffect(() => {
         const getAPI = async () => {
-            const url = "https://min-api.cryptocompare.com/data/top/mktcapfull?limit=20&tsym=USD"
-            const response = await fetch(url)
-            const result = await response.json()
+            const url = "https://min-api.cryptoc;ompare.com/data/top/mktcapfull?limit=20&tsym=USD";
+            const response = await fetch(url);
+            const result = await response.json();
 
             const arrayCryptos = result.Data.map( crypto => {
-                const objet = {
+                const object = {
                     id: crypto.CoinInfo.Name,
-                    nombre: crypto.CoinInfo.FullName
+                    name: crypto.CoinInfo.FullName
                 }
-                return objet
+                return object;
             })
 
-            setCryptos(arrayCryptos)
+            setCryptos(arrayCryptos);
 
         }
         getAPI();
-    }, [])
+    }, []);
 
     const handleSubmit = e => {
-        e.preventDefault()
+        e.preventDefault();
 
         if([currency, cryptocurrency].includes('')) {
-            setError(true)
-            return
-        }
+            setError(true);
+            return;
+        };
 
-        setError(false)
+        setError(false);
         setCurrencies({
             currency,
             cryptocurrency
-        })
-    }
+        });
+    };
     
     return (
         <>
