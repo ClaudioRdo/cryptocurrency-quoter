@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Form from './components/Form';
 import Result from './components/Result';
 import Spinner from './components/Spinner';
-import ImageCrypto from './img/image-cryptos.png';
+import ImageCrypto from './assets/image-cryptos.png';
 
 const Container = styled.div`
   max-width: 900px;
