@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Error from './Error';
 import useSelectMonedas from '../hooks/useSelectMonedas';
-import { monedas } from '../data/monedas';
+import { currencies } from '../data/currencies';
 
 const InputSubmit = styled.input`
     background-color: #9497FF;
